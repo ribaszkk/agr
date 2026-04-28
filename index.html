@@ -1,47 +1,58 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    margin: 0;
-    line-height: 1.6;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroTech | Gestão de Defensivos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Agro<span>Info</span></div>
+        <ul>
+            <li><a href="#classificacao">Classificação</a></li>
+            <li><a href="#seguranca">Segurança (EPI)</a></li>
+            <li><a href="#normas">Legislação</a></li>
+        </ul>
+    </nav>
 
-header {
-    background-color: #000;
-    padding: 2rem;
-    text-align: center;
-    border-bottom: 4px solid #d32f2f;
-}
+    <header class="hero">
+        <h1>Guia Técnico de Defensivos Agrícolas</h1>
+        <p>Informação e segurança para uma agricultura sustentável e produtiva.</p>
+    </header>
 
-h1 { margin: 0; color: #d32f2f; }
+    <main>
+        <section id="classificacao" class="container">
+            <h2>Classificação Toxicológica</h2>
+            <p>Os defensivos são classificados por cores de acordo com seu nível de toxicidade (Anvisa):</p>
+            <div class="grid">
+                <div class="card vermelho">
+                    <h3>Classe I</h3>
+                    <p>Extremamente Tóxico</p>
+                </div>
+                <div class="card amarelo">
+                    <h3>Classe II</h3>
+                    <p>Altamente Tóxico</p>
+                </div>
+                <div class="card azul">
+                    <h3>Classe IV</h3>
+                    <p>Pouco Tóxico</p>
+                </div>
+            </div>
+        </section>
 
-#golpes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
+        <section id="seguranca" class="info-box">
+            <h2>Uso Obrigatório de EPI</h2>
+            <ul>
+                <li><strong>Viseira e Máscara:</strong> Proteção contra inalação e respingos.</li>
+                <li><strong>Macacão Hidrorrepelente:</strong> Proteção do tronco e membros.</li>
+                <li><strong>Luvas de Nitrila:</strong> Resistência química superior ao látex comum.</li>
+            </ul>
+        </section>
+    </main>
 
-.card {
-    background-color: #262626;
-    border: 1px solid #444;
-    margin: 10px;
-    padding: 20px;
-    width: 300px;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    border-color: #d32f2f;
-}
-
-h2 { color: #d32f2f; }
-
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.8rem;
-    color: #888;
-}
+    <footer>
+        <p>Consulte sempre um Engenheiro Agrônomo. Siga o Receituário Agronômico.</p>
+    </footer>
+</body>
+</html>
