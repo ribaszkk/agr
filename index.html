@@ -3,56 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech | Gestão de Defensivos</title>
+    <title>AgroTech - Tabela de Insumos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Agro<span>Info</span></div>
-        <ul>
-            <li><a href="#classificacao">Classificação</a></li>
-            <li><a href="#seguranca">Segurança (EPI)</a></li>
-            <li><a href="#normas">Legislação</a></li>
-        </ul>
-    </nav>
 
-    <header class="hero">
-        <h1>Guia Técnico de Defensivos Agrícolas</h1>
-        <p>Informação e segurança para uma agricultura sustentável e produtiva.</p>
-    </header>
+    <div class="background-decor"></div>
 
-    <main>
-        <section id="classificacao" class="container">
-            <h2>Classificação Toxicológica</h2>
-            <p>Os defensivos são classificados por cores de acordo com seu nível de toxicidade (Anvisa):</p>
-            <div class="grid">
-                <div class="card vermelho">
-                    <h3>Classe I</h3>
-                    <p>Extremamente Tóxico</p>
-                </div>
-                <div class="card amarelo">
-                    <h3>Classe II</h3>
-                    <p>Altamente Tóxico</p>
-                </div>
-                <div class="card azul">
-                    <h3>Classe IV</h3>
-                    <p>Pouco Tóxico</p>
-                </div>
+    <main class="container">
+        <header>
+            <h1>Catálogo de Defensivos</h1>
+            <p>Especificações técnicas e preços atualizados</p>
+        </header>
+
+        <section class="grid-produtos">
+            <div class="card">
+                <div class="badge">Herbicida</div>
+                <h2>Glifosato Ultra</h2>
+                <p class="desc">Eficiente no controle de plantas daninhas de folha larga.</p>
+                <ul class="specs">
+                    <li><strong>Concentração:</strong> 480 g/L</li>
+                    <li><strong>Carência:</strong> 7 dias</li>
+                </ul>
+                <div class="price">R$ 450,00 <span>/20L</span></div>
+                <button class="btn">Ver Detalhes</button>
             </div>
-        </section>
 
-        <section id="seguranca" class="info-box">
-            <h2>Uso Obrigatório de EPI</h2>
-            <ul>
-                <li><strong>Viseira e Máscara:</strong> Proteção contra inalação e respingos.</li>
-                <li><strong>Macacão Hidrorrepelente:</strong> Proteção do tronco e membros.</li>
-                <li><strong>Luvas de Nitrila:</strong> Resistência química superior ao látex comum.</li>
-            </ul>
-        </section>
+            <div class="card">
+                <div class="badge">Inseticida</div>
+                <h2>Imidacloprido Pro</h2>
+                <p class="desc">Proteção sistêmica contra pragas sugadoras.</p>
+                <ul class="specs">
+                    <li><strong>Concentração:</strong> 200 g/L</li>
+                    <li><strong>Aplicação:</strong> Foliar</li>
+                </ul>
+                <div class="price">R$ 1.280,00 <span>/5L</span></div>
+                <button class="btn">Ver Detalhes</button>
+            </div>
+        </section>:root {
+    --primary: #2d5a27;
+    --accent: #8bc34a;
+    --bg-gradient: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    --card-bg: #f0f4f0;
+    --shadow-light: #ffffff;
+    --shadow-dark: #b8c2b8;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    width: 90%;
+    padding: 40px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h1 { color: var(--primary); font-size: 2.5rem; }
+
+/* Grid de Cards */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Efeito de Relevo nos Cards (Neumorphism) */
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px var(--shadow-dark), 
+                -10px -10px 20px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.badge {
+    background: var(--primary);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.specs {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2e7d32;
+    margin: 20px 0;
+}
+
+.price span { font-size: 0.9rem; color: #666; }
+
+/* Botão com Relevo */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 4px 4px 8px var(--shadow-dark), 
+                -4px -4px 8px var(--shadow-light);
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+                inset -4px -4px 8px var(--shadow-light);
+}
     </main>
 
-    <footer>
-        <p>Consulte sempre um Engenheiro Agrônomo. Siga o Receituário Agronômico.</p>
-    </footer>
 </body>
 </html>
