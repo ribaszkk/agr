@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroTech - Catálogo Moderno</title>
+    <title>AgroTech - Catálogo de Defensivos</title>
     <style>
-        /* Configurações Gerais */
+        /* Configurações de Cores e Estilo */
         :root {
             --bg-deep: #0a0f0a;
             --neon-green: #39ff14;
             --neon-blue: #00f2ff;
+            --danger-red: #ff3131;
             --glass-white: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
         }
 
-        html { scroll-behavior: smooth; } /* Faz o deslize do botão ficar suave */
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
             background-color: var(--bg-deep);
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
 
-        /* --- SEÇÃO 1: BOAS VINDAS (HERO) --- */
+        /* --- SEÇÃO HERO (BOAS VINDAS) --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -42,8 +43,8 @@
             background: linear-gradient(to bottom, #fff, var(--neon-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(57, 255, 20, 0.3));
             margin-bottom: 10px;
+            letter-spacing: 5px;
         }
 
         .hero p {
@@ -53,7 +54,6 @@
             max-width: 600px;
         }
 
-        /* Botão com Relevo e Brilho */
         .scroll-btn {
             padding: 18px 45px;
             font-size: 1rem;
@@ -61,12 +61,12 @@
             text-transform: uppercase;
             color: var(--neon-green);
             background: var(--glass-white);
-            border: 1px solid var(--neon-green);
+            border: 2px solid var(--neon-green);
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 0 10px rgba(57, 255, 20, 0.2);
             text-decoration: none;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
         }
 
         .scroll-btn:hover {
@@ -76,7 +76,7 @@
             transform: scale(1.05);
         }
 
-        /* --- SEÇÃO 2: CATÁLOGO --- */
+        /* --- SEÇÃO DO CATÁLOGO --- */
         .catalogo {
             padding: 100px 20px;
             max-width: 1200px;
@@ -97,14 +97,15 @@
             gap: 40px;
         }
 
-        /* Card Estilo Relevo Glassmorphism */
+        /* Card com Efeito de Relevo (Neumorphism Dark) */
         .card {
             background: var(--glass-white);
             backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             padding: 40px;
-            box-shadow: 20px 20px 50px rgba(0,0,0,0.5), -5px -5px 20px rgba(255,255,255,0.02);
+            box-shadow: 20px 20px 50px rgba(0,0,0,0.6), 
+                        inset 2px 2px 5px rgba(255,255,255,0.05);
             transition: 0.4s;
         }
 
@@ -113,113 +114,130 @@
             transform: translateY(-10px);
         }
 
-        .card h3 {
-            color: var(--neon-green);
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+        .badge {
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        .card .info-text {
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .desc {
             color: #ccc;
-            line-height: 1.6;
+            font-size: 1rem;
+            line-height: 1.5;
             margin-bottom: 20px;
         }
 
         .price {
             font-size: 2rem;
-            font-weight: 900;
-            color: var(--neon-blue);
-            margin-top: 20px;
+            font-weight: bold;
+            color: var(--neon-green);
+            margin: 20px 0;
             display: block;
         }
 
-        .specs-content {
+        .price span { font-size: 0.9rem; color: #888; }
+
+        /* Painel de Informações Escondido */
+        .info-panel {
             margin-top: 20px;
-            padding: 15px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: none;
             font-size: 0.9rem;
-            display: none; /* Inicia escondido */
-            border-left: 2px solid var(--neon-blue);
+            color: #add8e6;
         }
 
         .btn-more {
-            margin-top: 20px;
-            background: none;
-            border: 1px solid #555;
-            color: #fff;
-            padding: 8px 20px;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 12px;
             border-radius: 10px;
             cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .btn-more:hover { border-color: #fff; }
-
+        .btn-more:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <h1>AGRO NEON</h1>
-        <p>A tecnologia dos defensivos agrícolas apresentada com precisão técnica e visual futurista.</p>
-        <a href="#catalogo" class="scroll-btn">Explorar Produtos</a>
+        <h1>AGRO VISION</h1>
+        <p>Especificações técnicas e preços de defensivos agrícolas com tecnologia de ponta.</p>
+        <a href="#produtos" class="scroll-btn">Ver Catálogo</a>
     </section>
 
-    <section id="catalogo" class="catalogo">
-        <h2 class="section-title">Insumos Disponíveis</h2>
+    <section id="produtos" class="catalogo">
+        <h2 class="section-title">Defensivos em Destaque</h2>
 
         <div class="grid">
             <div class="card">
-                <h3>Nitro-Power 500</h3>
-                <p class="info-text">Fertilizante foliar de alta absorção para culturas de ciclo curto.</p>
-                <span class="price">R$ 340,00</span>
+                <span class="badge" style="color: var(--neon-green);">Herbicida</span>
+                <h3>Glifosato Ultra</h3>
+                <p class="desc">Eficiente no controle de plantas daninhas de folha larga.</p>
+                <span class="price">R$ 450,00 <span>/20L</span></span>
                 
-                <button class="btn-more" onclick="toggleInfo(this)">Detalhes Técnicos</button>
-                <div class="specs-content">
-                    <p><b>Composição:</b> Nitrogênio Quelatado</p>
-                    <p><b>Dosagem:</b> 2L / Hectare</p>
-                    <p><b>Efeito:</b> Arrancada vegetativa imediata.</p>
-                </div>
-            </div>
-
-            <div class="card" style="border-bottom: 4px solid #ff3131;">
-                <h3 style="color: #ff3131;">Terminator XL</h3>
-                <p class="info-text">Veneno concentrado para controle de lagartas e percevejos.</p>
-                <span class="price">R$ 1.120,00</span>
-                
-                <button class="btn-more" onclick="toggleInfo(this)">Detalhes Técnicos</button>
-                <div class="specs-content">
-                    <p><b>Classe:</b> Inseticida Sistêmico</p>
-                    <p><b>Carência:</b> 14 dias antes da colheita</p>
-                    <p><b>Risco:</b> Altamente tóxico (Faixa Vermelha)</p>
+                <button class="btn-more" onclick="toggle(this)">+ Especificações</button>
+                <div class="info-panel">
+                    <p><strong>Concentração:</strong> 480 g/L</p>
+                    <p><strong>Carência:</strong> 7 dias</p>
+                    <p><strong>Aplicação:</strong> Pós-emergência das invasoras.</p>
                 </div>
             </div>
 
             <div class="card">
-                <h3>Bio-Shield</h3>
-                <p class="info-text">Protetor orgânico contra fungos e bactérias de solo.</p>
-                <span class="price">R$ 450,00</span>
+                <span class="badge" style="color: #fb923c;">Inseticida</span>
+                <h3>Imidacloprido Pro</h3>
+                <p class="desc">Proteção sistêmica contra pragas sugadoras e percevejos.</p>
+                <span class="price">R$ 1.280,00 <span>/5L</span></span>
                 
-                <button class="btn-more" onclick="toggleInfo(this)">Detalhes Técnicos</button>
-                <div class="specs-content">
-                    <p><b>Origem:</b> Extrato de Algas</p>
-                    <p><b>Uso:</b> Tratamento de sementes</p>
-                    <p><b>Vantagem:</b> Resíduo Zero (Eco-Friendly)</p>
+                <button class="btn-more" onclick="toggle(this)">+ Especificações</button>
+                <div class="info-panel">
+                    <p><strong>Concentração:</strong> 200 g/L</p>
+                    <p><strong>Aplicação:</strong> Foliar e via solo.</p>
+                    <p><strong>Destaque:</strong> Alta translocação na planta.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge" style="color: var(--neon-blue);">Fungicida</span>
+                <h3>Fungix Plus</h3>
+                <p class="desc">Controle preventivo e curativo de ferrugem e oídio.</p>
+                <span class="price">R$ 890,00 <span>/5L</span></span>
+                
+                <button class="btn-more" onclick="toggle(this)">+ Especificações</button>
+                <div class="info-panel">
+                    <p><strong>Princípio Ativo:</strong> Trifloxistrobina</p>
+                    <p><strong>Diluição:</strong> 200ml para 100L de água.</p>
+                    <p><strong>Ação:</strong> Mesostêmica e Sistêmica.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        // Função para mostrar/esconder detalhes
-        function toggleInfo(btn) {
+        function toggle(btn) {
             const panel = btn.nextElementSibling;
             if (panel.style.display === "block") {
                 panel.style.display = "none";
-                btn.innerText = "Detalhes Técnicos";
+                btn.innerText = "+ Especificações";
             } else {
                 panel.style.display = "block";
-                btn.innerText = "Fechar Detalhes";
+                btn.innerText = "- Fechar";
             }
         }
     </script>
